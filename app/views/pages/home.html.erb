@@ -1,2 +1,178 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão Beleza Pura</title>  
+
+
+</head>
+<body>
+    <!--Navbar-->
+    <nav id="topo" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">            
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="<%= image_path('logo.png') %>" alt="Logo" style="width: 50px; height: 50px;">
+                <span>Beleza Pura</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>   
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">                       
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>         
+        </div>
+    </nav>
+
+    <!--Header-->
+    <header class="hero-header">
+        <div class="container text-center d-flex flex-column align-items-center justify-content-center h-100">
+            <h1 class="display-4">Realce sua beleza com a gente!</h1>
+            <p class="lead">Cortes, escovas, unhas e muito mais</p>    
+            <a 
+                href="https://wa.me/552199999999?text=Olá,+gostaria+de+agendar+um+horário+no+salão." 
+                class="btn btn-success btn-lg px-4 py-2 shadow d-inline-flex align-items-center gap-2 mt-3" target="_blank">
+                <i class="fab fa-whatsapp fa-lg"></i> Agendar via WhatsApp
+            </a>        
+        </div>
+        
+    </header>
+
+    <!--Services Section-->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Nossos Serviços</h2>
+            <div class="row justify-content-center g-4">
+                <!--Corte cabelo-->
+                <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 hover-effect">
+                        <i class="fas fa-cut fa-2x text-secondary mb-3"></i>
+                        <h5 class="fw-bold">Cortes femininos</h5>
+                        <p class="small text-muted">Cortes modernos e personalizados, para valorizar ainda mais o seu estilo.</p>                          
+                        <img src="<%= image_path('corte.webp') %>" alt="Corte Feminino" class="img-fluid mb-2" style="width: 350px; height: 250px;">
+                    </div>                                       
+                </div>
+                <!--Escova-->
+                <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 hover-effect">
+                        <i class="fas fa-spa fa-2x text-info mb-3"></i>
+                        <h5 class="fw-bold">Escova e Hidratação</h5>
+                        <p class="small text-muted">Tratamento intenso que recupera a saúde dos fios, reduz o frizz e o ressecamento.</p>                         
+                        <img src="<%= image_path('escova.jpeg') %>" alt="Escova Feminina" class="img-fluid mb-2" style="width: 350px; height: 250px;"> 
+                    </div>                                        
+                </div>
+                <!--Manicure-->
+                <div class="col-md-4 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 hover-effect">
+                        <i class="fas fa-hand-sparkles fs-1 text-danger mb-3"></i>
+                        <h5 class="fw-bold">Manicure e pedicure</h5>
+                        <p class="small text-muted">Beleza das mãos e pés, limpeza profunda, prevenção de infecções e estresse</p>                          
+                        <img src="<%= image_path('manicure.jpg') %>" alt="Manicure e Pedicure" class="img-fluid mb-2" style="width: 350px; height: 250px;"> 
+                    </div>                                     
+                </div>
+            </div>    
+        </div>          
+    </section>
+
+    <!--About Us Section-->
+    <section id="about" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Sobre Nós</h2> 
+                <div class="row align-items-center">
+                    <!--Image-->
+                    <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+                        <img 
+                        src="<%= image_path('salao.jpg') %>" 
+                        alt="Nosso Salão" 
+                        class="img-fluid rounded-4 shadow-lg" 
+                        style="object-fit: cover; width: 450px; height: 350px;">
+                    </div>
+                    <!--Text-->
+                    <div class="col-md-6" data-aos="fade-left">
+                        <p class="text-muted fs-5 mb-3">
+                            O <strong class="text-dark">Salão Beleza Pura</strong> é um espaço dedicado a realçar a beleza de cada cliente. Com uma equipe de profissionais qualificados e apaixonados pelo que fazem, oferecemos serviços de alta qualidade em um ambiente acolhedor e moderno.
+                        </p>
+                        <p class="text-muted fs-5 mb-4">
+                            Desde 2010, somos referência em cortes, escovas, coloração, manicure, pedicure e tratamentos capilares personalizados.
+                            Aqui, você é nossa prioridade e queremos que cada visita seja uma experiência única.
+                        </p>
+                        <a 
+                            href="https://wa.me/552199999999?text=Olá,+gostaria+de+agendar+um+horário+no+salão." 
+                            class="btn btn-success btn-lg d-inline-flex align-items-center gap-2 shadow" target="_blank">
+                            <i class="fab fa-whatsapp fa-lg"></i> Agende pelo WhatsApp
+                            
+                        </a>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contact Section-->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-5">Fale Conosco</h2>
+                <div class="row gx-5">
+                    <div class="col-md-6 d-flex">
+                        <div class="info-box text-white w-100">
+                            <h5><i class="fas fa-map-marker-alt me-2"></i> Endereço</h5>
+                            <p></i>Rua das Flores, 123 - Jardim Imperial <br>São Paulo - SP</p>
+
+                            <h5><i class="fas fa-phone-alt me-2"></i> Telefone</h5>
+                            <p>(11) 99999-9999</p>
+
+                            <h5><i class="fas fa-clock me-2"></i> Horário de Funcionamento</h5>
+                            <p>Segunda a Sábado: 9h às 19h </p>
+
+                            <a 
+                                href="https://wa.me/552199999999?text=Olá,+gostaria+de+agendar+um+horário+no+salão." 
+                                class="btn btn-success btn-lg" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>Agendar pelo WhatsApp
+                            </a>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-md-6 d-flex">                        
+                        <div class="ratio ratio-4x3 shadow rounded w-100">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.6984053379556!2d-46.58515212797063!3d-23.144866400183307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cec176c2f5e0fb%3A0xaa0b62cc0ce7d896!2sR.%20das%20Fl%C3%B4res%2C%20123%20-%20Jardim%20Imperial%2C%20Atibaia%20-%20SP%2C%2012950-170!5e1!3m2!1spt-BR!2sbr!4v1745503962541!5m2!1spt-BR!2sbr" width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>                        
+                </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer class="bg-dark text-white text-center py-4">
+        <p class="mb-0">&copy; 2025 Beleza Pura. Todos os direitos reservados.</p>        
+    </footer>
+
+    <!--Button Top -->
+    <a href="#" id="btn-topo" class="btn btn-success rounded-circle shadow"
+        style="position: fixed; bottom: 20px; right: 20px; display: none; opacity: 0; transition: all 0.4s ease; z-index: 999;">       
+        <i class="fas fa-chevron-up"></i>
+    </a>
+   
+
+</body>
+
+</html>
