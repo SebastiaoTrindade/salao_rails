@@ -121,3 +121,41 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: opacity 0.3s ease;
 }
+
+/* Botão Cadastre-se */
+/* Estilo padrão para todos os tamanhos */
+.cadastro-link {
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilo elegante somente para telas maiores que 768px (desktop) */
+  @media (min-width: 768px) {
+    .cadastro-link {
+      border: 1px solid transparent;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .cadastro-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #ffffff;
+      transition: width 0.3s ease;
+    }
+  
+    .cadastro-link:hover {
+      border-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  
+    .cadastro-link:hover::after {
+      width: 100%;
+    }
+  }
+  
