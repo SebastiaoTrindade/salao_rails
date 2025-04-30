@@ -1,3 +1,46 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Login */
+.login-hero{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/banner.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-overlay{
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.login-logo{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.login-form-wrapper{
+    color: #fff;
+}
+
+.login-form .form-control{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);       
+    color: #fff;
+    border-radius: 8px;
+}
+
+.login-form .form-control:focus{
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: #fff;
+    box-shadow: none;
+}
+
+.input-group-text{
+    border: none;
+}
