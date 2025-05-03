@@ -4,25 +4,25 @@
             <%= image_tag 'logo.png', alt: 'Logo', class: 'login-logo' %>
         </div>
         <div class="login-form-wrapper">
-            <h2 class="text-center mb-4 text-white">Login</h2>
+            <h2 class="text-center mb-4 text-white">Salão Beleza Pura</h2>
 
             <%= form_with url: login_path, local: true, class: 'login-form' do |form| %>
                 <div class="input-group mb-3">
-                    <span class="input-group-text bg-transparent border-0">
-                        <i class="fas fa-envelope text-white"></i>
+                    <span class="input-group-text">
+                        <i class="fas fa-envelope text-black"></i>
                     </span>                    
-                    <%= form.email_field :email, class: 'form-control bg-transparent text-white border-1', placeholder: 'Email' %>
+                    <%= form.email_field :email, class: 'form-control text-white border-1', placeholder: 'Email' %>
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text bg-transparent border-0">
-                        <i class="fas fa-lock text-white"></i>
+                    <span class="input-group-text">
+                        <i class="fas fa-lock text-black"></i>
                     </span>                   
-                    <%= form.password_field :password, class: 'form-control bg-transparent text-white border-1', placeholder: 'Senha' %>
+                    <%= form.password_field :password, class: 'form-control text-white border-1', placeholder: 'Senha' %>
                 </div>
 
                 <div class="d-grid">
-                    <%= form.submit 'Entrar', class: 'btn btn-block btn-primary' %>
+                    <%= form.submit 'Entrar', class: 'btn btn-primary w-100' %>
                 </div>
             <% end %>
             <div class="text-center mt-3">
