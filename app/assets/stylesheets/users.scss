@@ -1,3 +1,123 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.register-hero{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/banner.jpg');
+    background-size: cover;   
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.register-overlay{
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 420px;      
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.register-logo{
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.register-form-wrapper h2{
+    font-weight: 600;
+    font-size: 26px;
+    color: #fff;
+}
+
+.register-form-wrapper{
+    color: #fff;
+}
+
+.register-form .form-control{
+    background-color: rgba(255, 255, 255, 0.15);  
+    border: 1px solid rgba(255, 255, 255, 0.3);  
+    color: #fff;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.register-form .form-control:focus{
+    background-color: rgba(255, 255, 255, 0.25);  
+    border: none;  
+    color: #fff;
+    box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.3);    
+}
+
+.input-group{
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.input-group-text{
+    background-color: rgba(255, 255, 255, 0.1);    
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;    
+}
+
+.input-group-text i{
+    font-size: 18px;   
+}
+
+.register-button{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-button:hover{
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsividade*/
+@media (max-width: 576px) {
+    
+    .register-overlay{
+        padding: 30px 20px;
+    }
+
+    .input-group-text{
+        padding: 0.5rem;
+    }
+
+    .register-button{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-overlay{
+        padding: 30px 20px;
+    }
+
+    .register-form-wrapper h2{
+        font-size: 22px;
+    }
+    
+    .btn-success{
+        font-size: 15px;
+    }
+}
+
+/* Animação */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
