@@ -1,0 +1,31 @@
+<div class="recover-hero">
+    <div class="recover-overlay" data-aos="fade-up">
+        <div class="text-center mb-4">
+            <%= image_tag 'logo.png', alt: 'Logo', class: 'login-logo' %>
+        </div>
+
+        <div class="recover-form-wrapper">
+            <h2 class="text-center mb-4 text-white">Recuperar Senha</h2>
+            <p class="text-center text-light mb-4">Digite seu e-mail para receber instruções de recuperação de senha.</p>
+
+            <%= form_with url: password_resets_path, method: :post, local: true, class: 'recover-form' do |form| %>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fas fa-envelope"></i>
+                    </span>">                    
+                        <%= form.email_field :email, class: 'form-control', placeholder: 'Digite seu e-mail', required: true %>
+                </div>
+
+                <div class="d-grid">
+                    <%= form.submit 'Enviar instruções', class: 'btn btn-block btn-warning recover button' %>
+                </div>
+            <% end %>
+
+                <div class="text-center mt-3">
+                    <%= link_to 'Voltar para o login', login_path, class: 'text-light' %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
