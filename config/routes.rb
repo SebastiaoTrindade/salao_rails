@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # Static Pages  
   root 'pages#home'
 
@@ -12,5 +13,9 @@ Rails.application.routes.draw do
 
   # Password_resets
   resources :password_resets, only: [:new, :create, :edit, :update]
+
+  # Dashboard
+  get 'dashboard', to: 'dashboard#index'
+  root 'dashboard#index'
   
 end
