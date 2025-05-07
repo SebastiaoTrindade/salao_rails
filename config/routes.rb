@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :users, except: [:index] 
 
   # Password_resets
-  resources :password_resets
+  resources :password_resets, only: [:new, :create, :edit, :update]
   
 end

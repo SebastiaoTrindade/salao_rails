@@ -11,25 +11,25 @@
                     <span class="input-group-text">
                         <i class="fas fa-user text-black"></i>
                     </span>                    
-                    <%= form.text_field :name, class: 'form-control', placeholder: 'Digite seu nome completo' %>
+                    <%= form.text_field :name, class: 'form-control', placeholder: 'Digite seu nome completo', required: true %>
                 </div>  
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="fas fa-envelope text-black"></i>
                     </span>                    
-                    <%= form.email_field :email, class: 'form-control', placeholder: 'Digite seu e-mail' %>
+                    <%= form.email_field :email, class: 'form-control', placeholder: 'Digite seu e-mail', required: true %>
                 </div>  
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="fas fa-lock text-black"></i>
                     </span>                    
-                    <%= form.password_field :password, class: 'form-control', placeholder: 'Digite sua senha' %>
+                    <%= form.password_field :password, class: 'form-control', placeholder: 'Digite sua senha', required: true %>
                 </div>  
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="fas fa-lock text-black"></i>
                     </span>                    
-                    <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirme sua senha' %>
+                    <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirme sua senha', required: true %>
                 </div>  
                 <div class="d-grid">
                     <%= form.submit 'Cadastrar', class: 'btn btn-success w-100 register-button' %>
