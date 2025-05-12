@@ -14,3 +14,5 @@ Rails.application.config.assets.precompile += %w( custom.css )
 # folder are already added.
 Rails.application.config.assets.precompile += %w( main.js )
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+Rails.application.config.assets.precompile += %w( chartkick.js )
