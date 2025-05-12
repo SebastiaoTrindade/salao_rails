@@ -1,3 +1,31 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#wrapper{
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#sidebar-wrapper{
+    width: 240px;
+    min-height: 100vh;
+}
+
+.dashboard-logo{
+    width: 60px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+#page-content-wrapper{
+    flex: 1;
+    overflow-y: auto;    
+    background-color: #f8f9fa;
+}
+
+.card{
+    transition: transform 0.2s ease, box-shadow 0.2s ease
+}
+
+.card:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
