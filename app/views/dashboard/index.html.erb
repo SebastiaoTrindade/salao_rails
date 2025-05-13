@@ -1,26 +1,37 @@
 <div class="d-flex" id="wrapper">
-    <!--Sidebar-->
-    <div class="bg-dark border-end" id="sidebar-wrapper">
-        <div class="sidebar-heading text-white py-4 px-3 fs-4 fw-bold">
+    <!--Sidebar-->    
+    <nav id="sidebar-wrapper" class="bg-dark border-end" >
+        <div class="sidebar-heading text-white py-4 px-3">
             <div class="text-center mb-1">
-                <%= image_tag 'logo.png', alt: 'Logo', class: 'dashboard-logo' %> 
-            </div>
-            <h4 class="text-center mb-4 text-white">Salão Beleza Pura</h4>
-             
+                <%= image_tag 'logo.png', alt: 'Logo', class: 'dashboard-logo me-2' %> 
+                <h5 class="text-white fw-bold">Salão Beleza Pura</h5>
+            </div>               
         </div>
         <div class="list-group list-group-flush">
-            <%= link_to 'Dashboard', dashboard_path, class: 'list-group-item list-group-item-action bg-dark text-white' %>
-            <%= link_to 'Usuários', users_path, class: 'list-group-item list-group-item-action bg-dark text-white' %>
+            <%= link_to dashboard_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %> 
+                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+            <% end %>
+
+            <%= link_to users_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
+                <i class="fas fa-users me-2"></i> Usuários
+            <% end %>
+
+            <%= link_to logout_path, method: :delete, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+            <% end %>
         </div>
-    </div>
+    </nav>
 
     <!--Page Content-->
+   
     <div id="page-content-wrapper" class="w-100">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm px-4">
+             <button class="btn btn-outline-dark me-3 d-lg-none" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <span class="navbar-brand mb-0 h1">Dashboard</span>
             <div class="ms-auto">
-                <span class="me-3 text-muted">Bem Vindo,<strong></strong></span>
-                <%= link_to 'Sair', logout_path, method: :delete, class: 'btn btn-outline-danger btn-sm' %>
+                <span class="me-3 text-muted">Bem Vindo, <strong><%= current_user.name %></strong></span>                
             </div>
         </nav>
 
@@ -68,7 +79,7 @@
                    <div class="card text-white bg-info shadow rounded-3">
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-comments me-2"></i>Mensagens</h5>
-                            <p class="card-text fs-4"><%= User.count %></p>   
+                            <p class="card-text fs-4">0</p>   
                             
                         </div>  
                    </div>

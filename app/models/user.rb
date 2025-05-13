@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
 
   def generate_password_reset_token
     self.reset_password_token = SecureRandom.urlsafe_base64
