@@ -1,10 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const toggler = document.getElementById("menu-toggle");
+document.addEventListener("turbolinks:load", function () {
+  const toggleBtn = document.getElementById("menu-toggle");
   const wrapper = document.getElementById("wrapper");
 
-  if (toggler && wrapper) {
-    toggler.addEventListener("click", function (e) {
-      e.preventDefault();
+  if (toggleBtn && wrapper) {
+    toggleBtn.addEventListener("click", function () {
       wrapper.classList.toggle("toggled");
     });
   }

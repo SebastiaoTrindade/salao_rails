@@ -4,18 +4,29 @@
     overflow: hidden;
 }
 
+#wrapper.toggled {
+  background-color: red !important;
+}
+
 #sidebar-wrapper{
     width: 250px;
     min-height: 100vh;
-    transition: all 0.3s ease;
+    top: 0;
+    left: 0;
     background-color: #343a40;
-    z-index: 1000;
     position: fixed;
+    z-index: 1000;
+    margin-left: 0;
+    transition: margin 0.3s ease;
 }
 
 #wrapper.toggled #sidebar-wrapper{
     margin-left: -250px;
 }
+
+#wrapper.toggled #page-content-wrapper {
+    margin-left: 0px;
+  }
 
 .sidebar-heading{
     background: #212519;
@@ -38,9 +49,20 @@
 }
 
 #page-content-wrapper{
-    flex: 1;
-    overflow-y: auto;    
-    background-color: #f8f9fa;
+    margin-left: 250px;
+    min-height: 100vh;    
+    padding: 20px;  
+    background-color: #f8f9fa; 
+}
+
+.navbar .navbar-brand{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.card-title{
+    font-size: 1.1rem;
+    
 }
 
 .card{
@@ -50,4 +72,25 @@
 .card:hover{
     transform: scale(1.02);
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+
+/* Mobile: sidebar colapsado */
+@media (max-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: -250px;
+    transition: all 0.3s ease;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    margin-left: 250px;
+  }
 }
