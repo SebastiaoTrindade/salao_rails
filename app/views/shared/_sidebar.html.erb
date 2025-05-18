@@ -1,0 +1,22 @@
+<!--Sidebar-->    
+    <nav id="sidebar-wrapper" class="bg-dark border-end" >
+        <div class="sidebar-heading text-white py-4 px-3">
+            <div class="text-center mb-1">
+                <%= image_tag 'logo.png', alt: 'Logo', class: 'dashboard-logo me-2' %> 
+                <h5 class="text-white fw-bold">Salão Beleza Pura</h5>
+            </div>               
+        </div>
+        <div class="list-group list-group-flush">
+            <%= link_to dashboard_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %> 
+                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+            <% end %>
+
+            <%= link_to users_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
+                <i class="fas fa-users me-2"></i> Usuários
+            <% end %>
+
+            <%= link_to logout_path, method: :delete, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+            <% end %>
+        </div>
+    </nav>

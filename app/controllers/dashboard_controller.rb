@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   before_action :require_user
+  layout 'dashboard'
   def index
     start_date = params[:start_date].presence || 1.month.ago.to_date 
     end_date = params[:end_date].presence || Date.today
