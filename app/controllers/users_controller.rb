@@ -34,7 +34,11 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  if current_user&.admin?
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
+  else
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end
 
 def set_user
