@@ -31,7 +31,7 @@
                     </span>                    
                     <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirme sua senha', required: true %>
                 </div>  
-                <%= if current_user?.admin? %>
+                <% if current_user&.admin? %>
                     <div class="form-check mb-3 text-start">                                          
                         <%= form.check_box :admin, class: 'form-check-input' %>
                         <%= form.label :admin, 'Administrador?', class: 'form-check-label text-white' %>
