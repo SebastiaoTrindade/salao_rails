@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  namespace :customers do
+    get 'dashboard/index'
+  end
+  namespace :admin do
+    get 'dashboard/index'
+  end
   resources :appointments
   resources :services
   # Static Pages  
