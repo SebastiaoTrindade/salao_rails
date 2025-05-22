@@ -7,20 +7,16 @@
             </div>               
         </div>
         <div class="list-group list-group-flush">
-            <%= link_to dashboard_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %> 
+            <%= link_to customers_dashboard_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %> 
                 <i class="fas fa-tachometer-alt me-2"></i> Dashboard
-            <% end %>
-
-            <%= link_to users_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
-                <i class="fas fa-users me-2"></i> Usuários
-            <% end %>
+            <% end %>          
 
             <%= link_to services_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
                 <i class="fas fa-cut me-2"></i> Serviços
             <% end %>
             
             <%= link_to appointments_path, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
-                <i class="fas fa-calendar-check me-2"></i> Agendamentos
+                <i class="fas fa-calendar-check me-2"></i> Meus Agendamentos
             <% end %>
 
             <%= link_to logout_path, method: :delete, class: 'list-group-item list-group-item-action bg-dark text-white sidebar-link' do %>
