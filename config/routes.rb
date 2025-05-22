@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :customers do
-    get 'dashboard/index'
-  end
-  namespace :admin do
-    get 'dashboard/index'
-  end
-  resources :appointments
-  resources :services
   # Static Pages  
   root 'pages#home'
 
@@ -22,8 +14,23 @@ Rails.application.routes.draw do
   # Password_resets
   resources :password_resets, only: [:new, :create, :edit, :update]
 
-  # Dashboard
-  get 'dashboard', to: 'dashboard#index'
-  root 'dashboard#index'
+ 
+  resources :appointments
+  resources :services
+
+  # Painel Admin
+  namespace :admin do 
+    get 'dashboard', to: '/admin/dashboard#index'
+    resources :users
+    resources :services
+    resources :appointments  
+  end
+
+  # Painel Cliente
+  namespace :customers do 
+    get 'dashboard', to: 'dashboard#index'
+    resources :appointments
+    get 'services', to: 'services#index'
+  end
   
 end
