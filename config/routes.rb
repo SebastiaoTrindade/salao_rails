@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+    
   # Static Pages  
   root 'pages#home'
 
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   # Painel Cliente
   namespace :customers do 
     get 'dashboard', to: 'dashboard#index'
-    resources :appointments
+    resources :appointments, only: [:index, :create]
     get 'services', to: 'services#index'
   end
   

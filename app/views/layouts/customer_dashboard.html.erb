@@ -28,21 +28,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    
       <div class="d-flex" id="wrapper">
-        <%= render 'shared_customer/sidebar' %>    
+        <div class="collapse bg-dark text-white d-lg-block" id="sidebarMenu">
+          <%= render 'shared_customer/sidebar' %>  
+        </div>          
 
       <!--Page Content-->   
         <div id="page-content-wrapper" class="w-100">
             <%= render 'shared_customer/header' %>
-            <%= render 'shared_customer/card' %>
+
+            <% if controller_name == 'dashboard' && action_name == 'index' %>
+              <%= render 'shared_customer/card' %>
+            <% end %>   
             
-        </div>   
-      </div>      
-   
-    
+            <div class="container-fluid py-4 px-4">
+              <%= yield %>
+
+            </div>            
+        </div>  
+      </div>            
+       
     <!-- Bootstrap JS from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" data-turbolinks-suppress-warning></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" data-turbolinks-suppress-warning></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" data-turbo-track="reload"></script>
 
     <!-- AOS JS for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" data-turbolinks-suppress-warning></script>
@@ -53,27 +62,22 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-      const toggleBtn = document.getElementById("menu-toggle");
-      const wrapper = document.getElementById("wrapper");
-      const icon = toggleBtn?.querySelector("i");
+        const toggleBtn = document.querySelector('[data-bs-toggle="collapse"]');
+        const toggleIcon = document.getElementById("toggle-icon");
+        const sidebar = document.getElementById("sidebarMenu");
 
-      if (toggleBtn && wrapper && icon) {
-        toggleBtn.addEventListener("click", function () {
-          wrapper.classList.toggle("toggled");
-          toggleBtn.classList.toggle("toggled");
+        if (toggleBtn && toggleIcon && sidebar) {
+          sidebar.addEventListener("shown.bs.collapse", () => {
+            toggleIcon.classList.remove("fa-bars");
+            toggleIcon.classList.add("fa-times");
+          });
 
-          // Troca o ícone se quiser
-          const icon = this.querySelector("i");
-          if (wrapper.classList.contains("toggled")) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
-          } else {
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
-          }
-        });
-      }
-    });
+          sidebar.addEventListener("hidden.bs.collapse", () => {
+            toggleIcon.classList.remove("fa-times");
+            toggleIcon.classList.add("fa-bars");
+          });
+        }
+      });
     </script>
 
   </body>
