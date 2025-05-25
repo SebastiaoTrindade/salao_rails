@@ -3,17 +3,12 @@
             <span class="navbar-brand mb-0 h4 fw-semibold">Área do Cliente</span>
 
             <div class="ms-auto d-flex align-items-center">
-                <span class="me-3 text-muted d-none d-lg-inline">Bem Vindo, <strong><%= current_user.name %></strong></span>                
-            </div>
-             <button class="btn btn-outline-dark me-3 d-lg-none toggle-sidebar-btn" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#sidebarMenu"                        
-                        aria-controls="sidebarMenu"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                <i class="fas fa-bars" id="toggle-icon"></i>
-             </button>
-
-            
+                <span class="me-3 text-muted d-none d-lg-inline">
+                    Bem Vindo, <strong><%= current_user.name %></strong>
+                </span>    
+                
+                <button class="btn btn-outline-dark d-lg-none" type="button" id="menu-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>               
         </nav>     

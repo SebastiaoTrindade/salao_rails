@@ -30,12 +30,13 @@
   <body>
     
       <div class="d-flex" id="wrapper">
-        <div class="collapse bg-dark text-white d-lg-block" id="sidebarMenu">
+        <!-- Sidebar -->
+        <div class="bg-dark text-white d-lg-block" id="sidebar-wrapper">
           <%= render 'shared_customer/sidebar' %>  
         </div>          
 
       <!--Page Content-->   
-        <div id="page-content-wrapper" class="w-100">
+        <div id="page-content-wrapper">
             <%= render 'shared_customer/header' %>
 
             <% if controller_name == 'dashboard' && action_name == 'index' %>
@@ -62,22 +63,16 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const toggleBtn = document.querySelector('[data-bs-toggle="collapse"]');
-        const toggleIcon = document.getElementById("toggle-icon");
-        const sidebar = document.getElementById("sidebarMenu");
+      const menuToggle = document.getElementById("menu-toggle");
+      const wrapper = document.getElementById("wrapper");
 
-        if (toggleBtn && toggleIcon && sidebar) {
-          sidebar.addEventListener("shown.bs.collapse", () => {
-            toggleIcon.classList.remove("fa-bars");
-            toggleIcon.classList.add("fa-times");
-          });
+      if (menuToggle && wrapper) {
+        menuToggle.addEventListener("click", function () {
+          wrapper.classList.toggle("toggled");
+        });
+      }
+    });
 
-          sidebar.addEventListener("hidden.bs.collapse", () => {
-            toggleIcon.classList.remove("fa-times");
-            toggleIcon.classList.add("fa-bars");
-          });
-        }
-      });
     </script>
 
   </body>
