@@ -63,16 +63,27 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-      const menuToggle = document.getElementById("menu-toggle");
+      const toggleBtn = document.getElementById("menu-toggle");
       const wrapper = document.getElementById("wrapper");
+      const icon = toggleBtn?.querySelector("i");
 
-      if (menuToggle && wrapper) {
-        menuToggle.addEventListener("click", function () {
+      if (toggleBtn && wrapper && icon) {
+        toggleBtn.addEventListener("click", function () {
           wrapper.classList.toggle("toggled");
+          toggleBtn.classList.toggle("toggled");
+
+          // Troca o ícone se quiser
+          const icon = this.querySelector("i");
+          if (wrapper.classList.contains("toggled")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+          } else {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
         });
       }
     });
-
     </script>
 
   </body>

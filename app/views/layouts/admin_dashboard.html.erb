@@ -28,16 +28,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    
       <div class="d-flex" id="wrapper">
-        <%= render 'shared/sidebar' %>    
+        <!-- Sidebar -->
+        <div class="bg-dark text-white sidebar-wrapper d-lg-block" id="sidebar-wrapper">
+          <%= render 'shared/sidebar' %>
+        </div>           
 
       <!--Page Content-->   
-        <div id="page-content-wrapper" class="w-100">
+        <div id="page-content-wrapper">
             <%= render 'shared/header' %>
             <%= render 'shared/card' %>
-             <%= render 'shared/grafic' %>
+            <%= render 'shared/grafic' %>
+
+            <div class="container-fluid py-4 px-4">
+              <%= yield %>  
+            </div>
         </div>   
+
+        
+
       </div>      
    
     
