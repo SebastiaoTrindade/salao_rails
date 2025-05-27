@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   # Users
-  resources :users, except: [:index] 
+  resources :users do
+    member do
+      patch :make_admin
+    end
+  end 
 
   # Password_resets
   resources :password_resets, only: [:new, :create, :edit, :update]

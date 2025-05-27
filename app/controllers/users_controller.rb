@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :destroy, :make_admin]
   before_action :require_user, only: [:edit, :update]
-
+  
+  def index
+    @users = User.all
+    @user = User.new
   def new
     @user = User.new
   end
@@ -19,6 +22,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @users = User.all
+    render :index
   end
 
   def update
@@ -28,6 +33,17 @@ class UsersController < ApplicationController
     else
       render 'edit' 
     end
+  end
+
+  def destroy
+    @user.destroy
+    flash[:success] = "Usuário excluido com sucesso!"
+    redirect_to root_path
+  end
+
+  def make_admin
+    @user.update(admin: true)
+    redirect_to root_path, notice: "Usuário promovido a administrador com sucesso!"
   end
 end
 
@@ -50,4 +66,5 @@ def require_user
     flash[:danger] = "Você precisa estar logado para acessar essa página."
     redirect_to login_path
   end
+end
 end
