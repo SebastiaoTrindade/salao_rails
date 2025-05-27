@@ -42,9 +42,11 @@ class UsersController < ApplicationController
   end
 
   def make_admin
-    @user.update(admin: true)
-    redirect_to root_path, notice: "Usuário promovido a administrador com sucesso!"
+    @user.update(admin: !@user.admin?)
+    msg = @user.admin? ? "Usuário promovido a administrador!" : "Permissão de administrador removida!"
+    redirect_to users_path, notice: msg
   end
+
 end
 
 private
