@@ -25,10 +25,10 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
 
     if @service.save
-      flash[:success] = "Serviço criado com sucesso!"
+      flash[:success] = "Serviço cadastrado com sucesso!"
       redirect_to services_path
     else
-      render 'new'
+      render 'index'
     end
   end
 
