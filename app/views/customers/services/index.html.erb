@@ -20,7 +20,7 @@
         <div class="mb-3">
             <%= label_tag :service_id, "Tipo de Serviço", class: "form-label" %>
             <% if @service_types.present? %>
-                <%= select_tag :service_id, options_from_collection_for_select(@service_types, :id, :name), { class: "form-select" }, required: true %>
+                <%= select_tag :service_id, options_from_collection_for_select(@service_types, :id, :name), { class: "form-select", required: true } %>
             <% else %>
                 <p class="text-danger">Nenhum tipo de serviço disponível.</p>
             <% end %>
