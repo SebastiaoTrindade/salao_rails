@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   namespace :customers do 
     get 'dashboard', to: 'dashboard#index'
     resources :appointments, only: [:index, :create]
+    resources :services, only: [:index]
     get 'services', to: 'services#index'
   end
   

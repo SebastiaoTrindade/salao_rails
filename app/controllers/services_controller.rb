@@ -26,7 +26,7 @@ class ServicesController < ApplicationController
 
     if @service.save
       flash[:success] = "Serviço cadastrado com sucesso!"
-      redirect_to services_path
+      redirect_to appointments_path
     else
       render 'index'
     end

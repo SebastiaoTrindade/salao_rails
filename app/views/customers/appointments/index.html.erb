@@ -1,2 +1,43 @@
-<h1>Customers::Appointments#index</h1>
-<p>Find me in app/views/customers/appointments/index.html.erb</p>
+<h2 class="mt-4">Meus agendamentos</h2>
+
+<% if @appointments.any? %>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Serviço</th>
+                    <th>Status</th>
+                    <th>Criado em:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @appointments.each do |appointment| %>
+                    <tr>
+                        <td><%= appointment.date.strftime('%d/%m/%Y') %></td>
+                        <td><%= appointment.time.present? ? appointment.time.strftime('%H:%M') : '-' %></td>
+                        <td><%= appointment.service.name %></td>
+                        <td>
+                            <span class="badge <%= appointment.status == 'confirmed' ? 'bg-success' : 'bg-secondary' %>">
+                                <%= appointment.status %>
+                            </span>
+                        </td>
+                        <td class="d-flex justify-content-center">
+                            <%= link_to edit_appointment_path(appointment), class: 'btn btn-primary btn-sm me-1', data: {bs_toggle: 'tooltip'}, title: 'Editar Agendamento' do %>
+                                <i class="fas fa-edit"></i> Editar
+                            <% end %>
+
+                            <%= link_to appointment_path(appointment), method: :delete, data: { confirm: 'Deseja realmente cancelar este agendamento?', bs_toggle: 'tooltip' }, class: 'btn btn-danger btn-sm', title: 'Cancelar Agendamento' do %>
+                                <i class="fas fa-trash-alt"></i> Cancelar
+                            <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+<% else %>
+    <p class="lead">Nenhum agendamento encontrado.</p>
+<% end %>
+
