@@ -1,0 +1,41 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Editar Agendamento</h2>
+    
+    <%= form_with model: [:customers, @appointment], local: true do |form| %>
+        <% if @appointment.errors.any? %>
+        <div class="alert alert-danger">
+            <h4><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h4>
+            <ul>
+            <% @appointment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+    
+        <div class="mb-3>
+        <%= form.label :date, 'Data do Agendamento' %>
+        <%= form.date_field :date, class: 'form-control' %>
+        </div>
+    
+        <div class="mb-3">
+        <%= form.label :time, 'Horário do Agendamento' %>
+        <%= form.select :time, @horarios_disponiveis, {}, class: 'form-control' %>
+        </div>
+    
+        <div class="mb-3">
+        <%= form.label :services_id, "Serviço" %>
+        <%= form.collection_select :service_id, @service_types, :id, :name, {}, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+        <%= form.label :status, 'Status' %>
+        <%= form.select :status, ["pendente", "confirmado", "cancelado"], {}, class: 'form-control' %>
+        </div>
+    
+        <div class="mb-3">
+        <%= form.submit "Atualizar Agendamento", class: 'btn btn-primary' %>
+        </div>
+    <% end %>
+    
+    <%= link_to 'Voltar', customers_appointments_path, class: 'btn btn-secondary' %>
+</div>

@@ -3,7 +3,7 @@ class Customers::DashboardController < ApplicationController
   layout 'customer_dashboard'
 
   def index
-    #@appoitments = current_user.appointments
+    @appointments_count = current_user.appointments.count
     @services = Service.all
   end
 

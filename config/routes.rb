@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   # Painel Cliente
   namespace :customers do 
     get 'dashboard', to: 'dashboard#index'
-    resources :appointments, only: [:index, :create]
+    resources :appointments, only: [:index, :create, :edit, :update]
     resources :services, only: [:index]
     get 'services', to: 'services#index'
   end
