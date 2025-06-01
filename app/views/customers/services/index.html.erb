@@ -14,7 +14,7 @@
 
         <div class="mb-3">
             <%= label_tag :time, "Horário Disponível", class: "form-label" %>
-            <%= select_tag :time, options_for_select(@horarios_disponiveis), { class: "form-select" }, required: true %>
+            <%= select_tag :time, options_for_select(@horarios_disponiveis), { class: "form-select", required: true }%>
         </div>
 
         <div class="mb-3">

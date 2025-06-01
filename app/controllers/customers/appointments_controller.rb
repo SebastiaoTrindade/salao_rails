@@ -3,22 +3,28 @@ class Customers::AppointmentsController < ApplicationController
   layout 'customer_dashboard'
 
   def index
-    @appointments = Appointment.where(user_id: current_user.id).includes(:service)
+    @appointments = current_user.appointments.includes(:service)
   end
 
   def create
+    date = params[:date]
+    time = params[:time]
+
+    datetime = DateTime.parse("#{date} #{time}") rescue nil
+
     @appointments = Appointment.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       service_id: params[:service_id],
-      date: params[:date],
-      time: params[:time]
+      date: date,
+      time: datetime,
+      status: "pendente"
     ) 
     
     if @appointments.save
       flash[:success] = "Agendamento realizado com sucesso!"
       redirect_to customers_appointments_path
     else
-      flash[:danger] = "Erro ao realizar o agendamento."
+      flash.now[:alert] = "Erro ao realizar o agendamento."
       redirect_to customers_services_path
     end    
   end
