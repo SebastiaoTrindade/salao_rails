@@ -1,18 +1,19 @@
 <h2 class="mt-4">Meus agendamentos</h2>
 
 <% if @appointments.any? %>
-    <div class="table-responsive">
+    <!-- Desktop e Tablet -->
+    <div class="table-responsive d-none d-md-block">
         <table class="table table-hover table-bordered table-striped">
-            <thead class="table-dark">
+            <thead class="table-dark text-center">
                 <tr>
                     <th>Data</th>
                     <th>Horário</th>
                     <th>Serviço</th>
                     <th>Status</th>
-                    <th>Criado em:</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 <% @appointments.each do |appointment| %>
                     <tr>
                         <td><%= appointment.date.strftime('%d/%m/%Y') %></td>
@@ -20,10 +21,10 @@
                         <td><%= appointment.service.name %></td>
                         <td>
                             <span class="badge <%= appointment.status == 'confirmed' ? 'bg-success' : 'bg-secondary' %>">
-                                <%= appointment.status %>
+                                <%= appointment.status.capitalize %>
                             </span>
                         </td>
-                        <td class="d-flex justify-content-center">
+                        <td class="text-center">
                             <%= link_to edit_customers_appointment_path(appointment), class: 'btn btn-primary btn-sm me-1', data: {bs_toggle: 'tooltip'}, title: 'Editar Agendamento' do %>
                                 <i class="fas fa-edit"></i> Editar
                             <% end %>
@@ -40,4 +41,31 @@
 <% else %>
     <p class="lead">Nenhum agendamento encontrado.</p>
 <% end %>
+
+<!-- Mobile -->
+<div class="d-block d-md-none">
+    <% @appointments.each do |appointment| %>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-calendar-alt me-2"></i><%= appointment.date.strftime('%d/%m/%Y') %></h5>
+                <p><strong>Horário: </strong><%= appointment.time.present? ? appointment.time.strftime('%H:%M') : '-' %></p>
+                <p><strong>Serviço: </strong><%= appointment.service.name %></p>
+                <p><strong>Status:</strong>
+                    <span class="badge <%= appointment.status == 'confirmed' ? 'bg-success' : 'bg-secondary' %>">
+                        <%= appointment.status.capitalize %>
+                    </span>
+                </p>
+                <div class="d-flex justify-content-beetween mt-3">
+                    <%= link_to edit_customers_appointment_path(appointment), class: 'btn btn-primary btn-sm me-1', data: {bs_toggle: 'tooltip'}, title: 'Editar Agendamento' do %>
+                        <i class="fas fa-edit"></i> Editar
+                    <% end %>
+                    <%= link_to appointment_path(appointment), method: :delete, data: { confirm: 'Deseja realmente cancelar este agendamento?', bs_toggle: 'tooltip' }, class: 'btn btn-danger btn-sm', title: 'Cancelar Agendamento' do %>
+                        <i class="fas fa-trash-alt"></i> Cancelar
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
 
