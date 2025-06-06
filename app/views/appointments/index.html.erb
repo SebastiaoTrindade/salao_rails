@@ -1,37 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid mt-4">
+   <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Todos os Agendamentos</h3>
+        <%= link_to admin_dashboard_path, class: 'btn btn-outline-secondary btn-sm d-flex align-items-center', data: {bs_toggle: 'tooltip'}, title: 'Voltar para Dashboard' do %>
+            <i class="fas fa-arrow-left me-2"></i>
+            <span class="d-none d-sm-inline">Voltar ao Dashboard</span>
+        <% end %>
+    </div>
+   
+<% if @appointments.any? %>
+  <div class="table-responsive shadow rounded">
+    <table class="table table-bordered table-hover text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Cliente</th>
+          <th>Serviço</th>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Status</th>
+          <th>Criado em</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appointment| %>
+          <tr>
+            <td><%= appointment.user.name %></td>
+            <td><%= appointment.service.name %></td>
+            <td><%= appointment.date.strftime('%d/%m/%Y') %></td>
+            <td><%= appointment.time.present? ? appointment.time.strftime('%H:%M') : '-' %></td>
+            <td>
+              <span class="badge <%= appointment.status == 'confirmed' ? 'bg-success' : 'bg-secondary' %>">
+                <%= appointment.status.capitalize %>
+              </span>
+            </td>
+            <td><%= appointment.created_at.strftime('%d/%m/%Y %H:%M') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p class="lead">Nenhum agendamento encontrado.</p>
+<% end %>
 
-<h1>Appointments</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>User</th>
-      <th>Service</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @appointments.each do |appointment| %>
-      <tr>
-        <td><%= appointment.date %></td>
-        <td><%= appointment.time %></td>
-        <td><%= appointment.description %></td>
-        <td><%= appointment.status %></td>
-        <td><%= appointment.user %></td>
-        <td><%= appointment.service %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Appointment', new_appointment_path %>

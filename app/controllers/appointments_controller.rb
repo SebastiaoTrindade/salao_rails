@@ -1,9 +1,12 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
-
+  before_action :require_admin
+  layout 'admin_dashboard'
+  
+  
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.includes(:user, :service).order(created_at: :desc)
   end
 
   # GET /appointments/1 or /appointments/1.json

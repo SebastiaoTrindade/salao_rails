@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get 'dashboard', to: '/admin/dashboard#index'
     resources :users
     resources :services
-    resources :appointments  
+    resources :appointments, only: [:index]  
   end
 
   # Painel Cliente
