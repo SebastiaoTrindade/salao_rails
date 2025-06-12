@@ -38,11 +38,13 @@
       <!--Page Content-->   
         <div id="page-content-wrapper" class="flex-grow-1 w-100">
             <%= render 'shared/header' %>
-            <%= render 'shared/card' %>
-            <%= render 'shared/grafic' %>
 
-            <div class="container-fluid py-4 px-4">
-              <p>*** Layout admin_dashboard carregado ***</p>
+            <% if controller_name == 'dashboard' && action_name == 'index' %>
+              <%= render 'shared/card' %>
+              <%= render 'shared/grafic' %>
+            <% end %>
+
+            <div class="container-fluid py-4 px-4">              
               <%= yield %>  
             </div>
         </div>  

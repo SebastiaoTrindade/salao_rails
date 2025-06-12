@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
     
+  namespace :admin do
+    get 'appointments/index'
+  end
+  namespace :admin do
+    get 'services/index'
+  end
+  namespace :admin do
+    get 'users/index'
+  end
   # Static Pages  
   root 'pages#home'
 
@@ -24,7 +33,7 @@ Rails.application.routes.draw do
 
   # Painel Admin
   namespace :admin do 
-    get 'dashboard', to: '/admin/dashboard#index'
+    get 'dashboard', to: 'dashboard#index'
     resources :users
     resources :services
     resources :appointments, only: [:index]  
