@@ -9,7 +9,7 @@
    
 <% if @appointments.any? %>
   <div class="table-responsive shadow rounded">
-    <table class="table table-bordered table-hover text-center">
+    <table class="table table-bordered table-hover align-middle text-center">
       <thead class="table-dark">
         <tr>
           <th>Cliente</th>
@@ -23,8 +23,8 @@
       <tbody>
         <% @appointments.each do |appointment| %>
           <tr>
-            <td><%= appointment.user.name %></td>
-            <td><%= appointment.service.name %></td>
+            <td class="text-black"><%= appointment.user.name %></td>
+            <td class="text-black"><%= appointment.service.name %></td>
             <td><%= appointment.date.strftime('%d/%m/%Y') %></td>
             <td><%= appointment.time.present? ? appointment.time.strftime('%H:%M') : '-' %></td>
             <td>

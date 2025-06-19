@@ -43,3 +43,16 @@ document.addEventListener('turbolinks:load', function() {
   }); 
 
 });
+
+// Função Botão Topo
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btn-topo");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      btn.classList.add("show");
+    } else {
+      btn.classList.remove("show");
+    }
+  });
+});
+

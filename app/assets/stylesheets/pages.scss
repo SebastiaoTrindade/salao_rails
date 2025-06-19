@@ -1,25 +1,30 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     overflow-x: hidden;
 }
 
-body{
-    font-family: 'Arial', 'Poppins', sans-serif;
+:root {
+    --font-principal: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-principal);
     overflow-x: hidden;
 }
 
-.hero-header{    
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/banner.jpg');    
+/* === Hero Header === */
+.hero-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), asset-url('banner.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #fff;  
-    min-height: 100vh; 
+    color: #fff;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +35,7 @@ body{
 .hero-header h1 {
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 1rem;    
+    margin-bottom: 1rem;
 }
 
 .hero-header p {
@@ -38,7 +43,7 @@ body{
     margin-bottom: 1rem;
 }
 
-.hero-header a.btn{
+.hero-header a.btn {
     font-size: 1.2rem;
     padding: 0.75rem 2rem;
     border-radius: 50px;
@@ -46,47 +51,47 @@ body{
     transition: all 0.3s ease;
 }
 
-.hero-header a.btn:hover{   
+.hero-header a.btn:hover {
     transform: scale(1.05);
 }
 
-/* Services*/
-.hover-effect{
+/* === Services === */
+.hover-effect {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor:pointer
+    cursor: pointer
 }
 
-.hover-effect:hover{
+.hover-effect:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* About */
-#about .btn-success{
+/* === About === */
+#about .btn-success {
     border-radius: 50px;
     padding: 0.6rem 2rem;
     font-size: 1rem;
     box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
     transition: transform 0.2s ease;
-    
+
 }
 
-#about .btn-success:hover{
-    transform: scale(1.05);    
+#about .btn-success:hover {
+    transform: scale(1.05);
 }
 
-/* Contact */
-#contact{
+/* === Contact === */
+#contact {
     background: linear-gradient(135deg, #1e1e2f, #343a40);
 }
 
-#contact h2{
+#contact h2 {
     font-weight: 700;
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
 
-#contact .info-box{
+#contact .info-box {
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border: 12px;
@@ -96,7 +101,7 @@ body{
     justify-content: center;
 }
 
-#contact .btn-success{
+#contact .btn-success {
     border-radius: 50px;
     padding: 0.6rem 2rem;
     font-size: 1rem;
@@ -104,60 +109,63 @@ body{
     transition: transform 0.2s ease;
 }
 
-#contact .btn-success:hover{
-    transform: scale(1.05);    
+#contact .btn-success:hover {
+    transform: scale(1.05);
 }
 
-/* Botão voltar página*/
-#btn-topo{
+/* === Botão voltar página === */
+#btn-topo.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#btn-topo {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 999;
     display: none;
-    padding: 0.75rem 1rem;    
-    border-radius: 50%;    
+    padding: 0.75rem 1rem;
+    border-radius: 50%;
     font-size: 1.2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: opacity 0.3s ease;
+    opacity: 0;    
 }
 
-/* Botão Cadastre-se */
+/* === Botão Cadastre-se === */
 /* Estilo padrão para todos os tamanhos */
 .cadastro-link {
     padding: 5px 15px;
     transition: all 0.3s ease;
-  }
-  
-  /* Estilo elegante somente para telas maiores que 768px (desktop) */
-  @media (min-width: 768px) {
-    .cadastro-link {
-      border: 1px solid transparent;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-  
-    .cadastro-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #ffffff;
-      transition: width 0.3s ease;
-    }
-  
-    .cadastro-link:hover {
-      border-color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-  
-    .cadastro-link:hover::after {
-      width: 100%;
-    }
-  }
+}
 
-  
-  
+/* === Estilo elegante somente para telas maiores que 768px (desktop) === */
+@media (min-width: 768px) {
+    .cadastro-link {
+        border: 1px solid transparent;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cadastro-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #ffffff;
+        transition: width 0.3s ease;
+    }
+
+    .cadastro-link:hover {
+        border-color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .cadastro-link:hover::after {
+        width: 100%;
+    }
+}
