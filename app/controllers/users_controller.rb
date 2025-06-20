@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy, :make_admin]
   before_action :require_user, only: [:edit, :update]
+  before_action :require_admin, only: [:index, :destroy, :make_admin]
   
   def index
     @users = User.all
     @user = User.new
+  end
   def new
     @user = User.new
   end
@@ -69,4 +71,10 @@ def require_user
     redirect_to login_path
   end
 end
+
+def require_admin
+  unless current_user&.admin?
+    flash[:danger] = "Acesso restrito a administradores."
+    redirect_to root_path
+  end
 end

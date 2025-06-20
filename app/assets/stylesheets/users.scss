@@ -1,3 +1,4 @@
+/* === Register === */
 .register-hero{
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/banner.jpg');
     background-size: cover;   
@@ -25,6 +26,7 @@
     margin-bottom: 15px;
 }
 
+/* === Register Form === */
 .register-form-wrapper h2{
     font-weight: 600;
     font-size: 26px;
@@ -68,6 +70,7 @@
     font-size: 18px;   
 }
 
+/* === Register Button === */
 .register-button{
     padding: 10px;
     font-size: 16px;
@@ -84,7 +87,8 @@
     font-size: 150px;
 }
 
-/* Responsividade*/
+
+/* === Responsividade === */
 @media (max-width: 576px) {
     
     .register-overlay{
@@ -114,7 +118,7 @@
     }
 }
 
-/* Animação */
+/* === Animação === */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
