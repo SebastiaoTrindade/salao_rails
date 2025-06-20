@@ -1,33 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--Header-->
+<header class="hero-header">
+    <div class="container text-center d-flex flex-column align-items-center justify-content-center h-100">
+        <h1 class="display-4">Realce sua beleza com a gente!</h1>
+        <p class="lead">Cortes, escovas, unhas e muito mais</p>
+        <a href="https://wa.me/552199999999?text=Olá,+gostaria+de+agendar+um+horário+no+salão."
+            class="btn btn-success btn-lg px-4 py-2 shadow d-inline-flex align-items-center gap-2 mt-3" target="_blank">
+            <i class="fab fa-whatsapp fa-lg"></i> Agendar via WhatsApp
+        </a>
+    </div>
+</header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salão Beleza Pura</title>
-
-
-</head>
-
-<body>
-
-    <!--Header-->
-    <header class="hero-header">
-        <div class="container text-center d-flex flex-column align-items-center justify-content-center h-100">
-            <h1 class="display-4">Realce sua beleza com a gente!</h1>
-            <p class="lead">Cortes, escovas, unhas e muito mais</p>
-            <a href="https://wa.me/552199999999?text=Olá,+gostaria+de+agendar+um+horário+no+salão."
-                class="btn btn-success btn-lg px-4 py-2 shadow d-inline-flex align-items-center gap-2 mt-3"
-                target="_blank">
-                <i class="fab fa-whatsapp fa-lg"></i> Agendar via WhatsApp
-            </a>
-        </div>
-    </header>
-
-    <%= render 'pages/services' %>
-    <%= render 'pages/about' %>    
-    <%= render 'pages/contact' %>    
-
-</body>
-
-</html>
+<%= render 'pages/services' %>
+<%= render 'pages/about' %>
+<%= render 'pages/contact' %>
