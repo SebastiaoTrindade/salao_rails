@@ -4,6 +4,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
+
     if user.present?
       user.generate_password_reset_token!
       PasswordResetMailer.with(user: user).reset_email.deliver_now
@@ -22,8 +23,9 @@ class PasswordResetsController < ApplicationController
 
   def update
     @user = User.find_by(reset_password_token: params[:token])
+
     if @user.present? && @user.password_token_valid? 
-      if @user.update(password_params)
+      if @user.reset_password!(params[:user][:password])
         redirect_to login_path, notice: "Senha alterada com sucesso!"
       else
         render :edit    

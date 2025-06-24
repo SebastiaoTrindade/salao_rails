@@ -1,10 +1,10 @@
 class PasswordResetMailer < ApplicationMailer
 
-  default from: 'sebatrindade@gmail.com'
+  default from: 'sebadevsystem@gmail.com'
 
-  def reset_email(user)
+  def reset_email
     @user = params[:user]
-    @url = edit_password_reset_url(token: @user.reset_password_token)
+    @url = edit_password_reset_url(@user.reset_password_token)
     mail(to: @user.email, subject: 'Redefinição de Senha')
   end
 end

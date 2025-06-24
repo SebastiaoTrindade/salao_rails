@@ -26,7 +26,6 @@ Rails.application.routes.draw do
 
   # Password_resets
   resources :password_resets, only: [:new, :create, :edit, :update]
-
  
   resources :appointments
   resources :services
