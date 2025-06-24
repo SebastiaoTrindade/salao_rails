@@ -6,9 +6,9 @@ class PasswordResetsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user.present?
       user.generate_password_reset_token!
-      PasswordResetMailer.width(user: @user).reset_email.deliver_now
+      PasswordResetMailer.with(user: user).reset_email.deliver_now
     else
-      flash[:notice] = "Email enviado com sucesso! Verifique sua caixa de spam." 
+      flash[:notice] = "Email enviado com sucesso! Verifique sua caixa de entrada ou spam." 
       redirect_to new_password_reset_path
     end
   end
@@ -23,7 +23,7 @@ class PasswordResetsController < ApplicationController
   def update
     @user = User.find_by(reset_password_token: params[:token])
     if @user.present? && @user.password_token_valid? 
-      if @user.reset_password!(params[:user][:password])
+      if @user.update(password_params)
         redirect_to login_path, notice: "Senha alterada com sucesso!"
       else
         render :edit    
@@ -31,6 +31,11 @@ class PasswordResetsController < ApplicationController
     else
       redirect_to new_password_reset_path, alert: "Token inválido ou expirado."
     end
+  end
+
+  private
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
   end
 end
 
