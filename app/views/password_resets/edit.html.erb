@@ -6,7 +6,7 @@
         <div class="recover-form-wrapper">
             <h2 class="text-center mb-4 text-white">Nova Senha</h2>
 
-            <%= form_with url: password_reset_path(token: params[:token]), method: :patch, local: true, class: 'recover-form' do |form| %>
+            <%= form_with url: password_reset_path(params[:id]), method: :patch, local: true, class: 'recover-form' do |form| %>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="fas fa-lock text-black"></i>

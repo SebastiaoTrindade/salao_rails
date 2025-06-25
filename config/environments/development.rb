@@ -61,7 +61,7 @@ Rails.application.configure do
 
   # Configuration for Action Mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  #Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
   # Configure Action Mailer to use SMTP with Gmail
   config.action_mailer.delivery_method = :smtp
@@ -70,7 +70,7 @@ Rails.application.configure do
     port: 587,
     domain: 'gmail.com', 
     user_name: 'sebadevsystem@gmail.com', 
-    password: 'system@dev', 
+    password: 'jfsqjhkpkmwqaiqd', 
     authentication: 'plain',
     enable_starttls_auto: true 
   }
